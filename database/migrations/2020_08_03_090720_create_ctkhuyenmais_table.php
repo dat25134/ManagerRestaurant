@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKhuvucsTable extends Migration
+class CreateCtkhuyenmaisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateKhuvucsTable extends Migration
      */
     public function up()
     {
-        Schema::create('khuvucs', function (Blueprint $table) {
+        Schema::create('ctkhuyenmais', function (Blueprint $table) {
             $table->id();
-            $table->string('Tenkhuvuc');
+            $table->integer('phantramKM');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +28,6 @@ class CreateKhuvucsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('khuvucs');
+        Schema::dropIfExists('ctkhuyenmais');
     }
 }

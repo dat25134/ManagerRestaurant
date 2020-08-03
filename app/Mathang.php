@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Khuvuc extends Model
+class Mathang extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
