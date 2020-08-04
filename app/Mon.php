@@ -29,4 +29,8 @@ class Mon extends Model
     public function ctkhuyenmais(){
         return $this->hasMany(Ctkhuyenmai::class);
     }
+
+    // public function menu(){
+    //     return $this->belongsTo(Nhommon::class,'id_nhommons');
+    // }
 }
