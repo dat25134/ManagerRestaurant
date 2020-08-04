@@ -9,4 +9,12 @@ class Ban extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    public function khuvuc()
+    {
+        return $this->belongsTo(Khuvuc::class,'id_khuvucs');
+    }
+
+    public function hoadons(){
+        return $this->hasMany(Hoadon::class);
+    }
 }

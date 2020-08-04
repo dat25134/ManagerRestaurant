@@ -19,6 +19,8 @@ class CreateThanhphansTable extends Migration
             $table->longText('ghichu');
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('id_mons');
+            $table->integer('id_mathangs');
         });
     }
 

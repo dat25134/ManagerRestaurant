@@ -20,6 +20,10 @@ class CreateHoadonsTable extends Migration
             $table->time('giothanhtoan');
             $table->integer('ca');
             $table->timestamps();
+            $table->integer('id_giamgias');
+            $table->integer('id_vats');
+            $table->integer('id_bans');
+            $table->integer('id_users');
             $table->softDeletes();
         });
     }

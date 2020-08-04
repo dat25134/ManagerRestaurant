@@ -18,6 +18,8 @@ class CreateCtkhuyenmaisTable extends Migration
             $table->integer('phantramKM');
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('id_khuyenmais');
+            $table->integer('id_mons');
         });
     }
 

@@ -18,6 +18,7 @@ class CreateBansTable extends Migration
             $table->string('tenban');
             $table->integer('soghe');
             $table->timestamps();
+            $table->integer('id_khuvucs');
             $table->softDeletes();
         });
     }

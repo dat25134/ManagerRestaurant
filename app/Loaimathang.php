@@ -9,4 +9,9 @@ class Loaimathang extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function mathangs(){
+        return $this->hasMany(Mathang::class);
+    }
+
 }

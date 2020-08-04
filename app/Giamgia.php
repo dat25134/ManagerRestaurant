@@ -9,4 +9,10 @@ class Giamgia extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function hoadons(){
+        return $this->hasMany(Hoadon::class);
+    }
+
+
 }

@@ -19,6 +19,8 @@ class CreateChitietpnsTable extends Migration
             $table->double('dongia');
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('id_phieunhaps');
+            $table->integer('id_mathangs');
         });
     }
 

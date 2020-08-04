@@ -9,4 +9,8 @@ class Nhommon extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function mons(){
+        return $this->hasMany(User::class);
+    }
 }

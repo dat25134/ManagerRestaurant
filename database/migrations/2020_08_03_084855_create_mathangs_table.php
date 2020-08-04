@@ -20,6 +20,8 @@ class CreateMathangsTable extends Migration
             $table->date('hansudung');
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('id_loaimathangs');
+            $table->integer('id_donvitinhs');
         });
     }
 

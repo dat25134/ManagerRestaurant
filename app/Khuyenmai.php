@@ -9,4 +9,8 @@ class Khuyenmai extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function ctkhuyenmais(){
+        return $this->hasMany(Ctkhuyenmai::class);
+    }
 }

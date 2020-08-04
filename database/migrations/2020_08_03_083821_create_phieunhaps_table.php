@@ -19,6 +19,8 @@ class CreatePhieunhapsTable extends Migration
             $table->string('nguoigiao');
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('id_users');
+            $table->integer('id_nhacungcaps');
         });
     }
 
