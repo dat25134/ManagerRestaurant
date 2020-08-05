@@ -37,7 +37,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chi tiết</h6>
                 <a class="collapse-item" href="buttons.html">Chi tiết các món ăn</a>
-                <a class="collapse-item" href="cards.html">Chi tiết Nhân viên</a>
+            <a class="collapse-item" href="{{route('dashboard.nhanvien')}}">Chi tiết Nhân viên</a>
                 <a class="collapse-item" href="cards.html">Chương trình khuyến mãi</a>
             </div>
         </div>
