@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\UserRepository;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,15 +14,11 @@ class NhanvienController extends Controller
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+        $this->middleware('auth');
     }
     public function index()
     {
-        if (Auth::user()){
-            return view('dashboard.index');
-        }else {
-            return redirect('/login');
-        }
-
+        return view('dashboard.index');
     }
 
     public function APINhanvien(){
@@ -31,5 +28,14 @@ class NhanvienController extends Controller
 
     public function quanlyNV(){
         return view('dashboard.chitietnhanvien');
+    }
+
+    public function dangki(Request $res){
+        // dd($res->all());
+        $atri = $res->all();
+
+        $data = User::create($atri);
+
+        return response()->json($data, 200);
     }
 }
