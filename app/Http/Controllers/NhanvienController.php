@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\UserRepository;
-use App\User;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,9 +16,14 @@ class NhanvienController extends Controller
         $this->userRepository = $userRepository;
         $this->middleware('auth');
     }
+
     public function index()
     {
         return view('dashboard.index');
+    }
+
+    public function quanlyNV(){
+        return view('dashboard.chitietnhanvien');
     }
 
     public function APINhanvien(){
@@ -26,16 +31,17 @@ class NhanvienController extends Controller
         return response()->json($users);
     }
 
-    public function quanlyNV(){
-        return view('dashboard.chitietnhanvien');
+    public function APINhanvienID($id){
+
+        $user = $this->userRepository->getNV($id);
+        return response()->json($user);
     }
 
-    public function dangki(Request $res){
-        // dd($res->all());
-        $atri = $res->all();
-
-        $data = User::create($atri);
-
-        return response()->json($data, 200);
+    public function APIupdateID(RegisterRequest $request){
+        $user = $this->userRepository->editNV($request);
+        $user->save();
+       return response()->json($request);
     }
+
+
 }

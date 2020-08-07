@@ -2,6 +2,7 @@
 @section('title','Dashboard')
 
 @section('content')
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -293,8 +294,8 @@
                 </div>
                 <div class="card-body">
                     <div class="text-center">
-                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                            src="img/undraw_posting_photo.svg" alt="">
+                        {{-- <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/undraw_posting_photo.svg" alt=""> --}}
                     </div>
                     <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
                             href="https://undraw.co/">unDraw</a>, a
@@ -336,7 +337,12 @@
     </div>
 </footer>
 <!-- End of Footer -->
+<!-- Custom scripts for all pages-->
+<script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+
+<!-- Page level plugins -->
+<script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+<!-- Page level custom scripts -->
+<script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+<script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 @endsection
-
-
-
