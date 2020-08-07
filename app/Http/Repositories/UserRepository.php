@@ -3,7 +3,8 @@ namespace App\Http\Repositories;
 
 use App\User;
 
-class UserRepository{
+class UserRepository implements UserRepositoryInterface
+{
 
     public function all()
     {
@@ -22,6 +23,13 @@ class UserRepository{
         $user->name = $request->name;
         $user->email = $request->email;
         $user->image64 = $request->image64;
+        $user->save();
+        return $user;
+    }
+
+    public function delNV($id){
+        $user = User::find($id);
+        $user->delete();
         return $user;
     }
 }

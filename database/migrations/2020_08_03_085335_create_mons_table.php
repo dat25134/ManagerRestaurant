@@ -21,8 +21,8 @@ class CreateMonsTable extends Migration
             $table->double('gia');
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('id_mons');
-            $table->integer('id_donvitinhs');
+            $table->unsignedBigInteger('id_nhommons');
+            $table->unsignedBigInteger('id_donvitinhs');
         });
     }
 

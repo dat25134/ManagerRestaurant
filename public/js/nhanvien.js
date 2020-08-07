@@ -33,7 +33,7 @@ nhanvien.show = function(){
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="nhanvien.openModal(this),nhanvien.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>
                             <a href="javascript:;" class="text-danger"
-                                    onclick=""><i class="fa fa-trash" aria-hidden="true"></i>
+                                    onclick="nhanvien.confirm(${v.id})"><i class="fa fa-trash" aria-hidden="true"></i>
                                     </a>
                         </td>
                     </tr>`
@@ -55,9 +55,11 @@ nhanvien.changeIMG = function(element){
 
 nhanvien.openModal = function(element){
     if (element.innerHTML == 'Create'){
+        nhanvien.resetModal();
         $('#add-edit-title').html('Thêm nhân viên mới');
         $('#button-submit').html('Save changes');
         $('#button-submit').attr('onclick','nhanvien.create()')
+        $('.none-show-edit').show();
     }else {
         $('.none-show-edit').hide();
         $('#add-edit-title').html('Chỉnh sửa thông tin nhân viên');
@@ -73,6 +75,7 @@ nhanvien.closeModal = function(){
 
 nhanvien.resetModal = function(){
     $('#reg-form').trigger("reset");
+    $('#Avatar').attr('src','http://localhost:8000/images/no-avatar.png')
 }
 
 nhanvien.toastrNoti = function(type,string){
@@ -120,7 +123,7 @@ nhanvien.create =function(){
                 $('#note-error').empty();
                 $('#error').empty();
                 var v = JSON.parse(data.responseText);
-                document.getElementById('note-error').innerHTML = v.message;
+                document.getElementById('note-error').innerHTML = 'Dữ liệu nhập vào không đúng';
                 $.each(v.errors,function(i,val){
                     $('#error').append(
                         `<li><label class="error">${val[0]}</label></li>`
@@ -166,13 +169,17 @@ nhanvien.edit = function(){
             image64:image64,
         },
         success: function(data){
-            nhanvien.toastrNoti('success',`Chỉnh sửa nhân viên ${name} thành công`)
+            nhanvien.closeModal();
+            nhanvien.resetModal();
+            nhanvien.toastrNoti('success',`Chỉnh sửa nhân viên ${name} thành công`);
+            $('#myTable').DataTable().destroy();
+            nhanvien.show();
         },
         error: function(data){
             $('#note-error').empty();
             $('#error').empty();
             var v = JSON.parse(data.responseText);
-            document.getElementById('note-error').innerHTML = v.message;
+            document.getElementById('note-error').innerHTML = 'Dữ liệu nhập vào không đúng';
             $.each(v.errors,function(i,val){
                 $('#error').append(
                     `<li><label class="error">${val[0]}</label></li>`
@@ -181,11 +188,38 @@ nhanvien.edit = function(){
         }
     })
 }
+nhanvien.confirm =function(id){
+    bootbox.confirm({
+        size: "small",
+        message: "Bạn có chắc chắn muốn xóa",
+        callback: function(result){
+            if (result){
+                nhanvien.del(id);
+            }
+        }
+    })
+}
+
+nhanvien.del = function(id){
+    $.ajax({
+        url: `http://localhost:8000/dashboard/apiNhanvien/${id}/del`,
+        method: 'get',
+        dataType: 'json',
+        success: function(user){
+            nhanvien.toastrNoti('success',`Xóa thành công ${user.name}`);
+            $('#myTable').DataTable().destroy();
+            nhanvien.show();
+        },
+        error: function(){
+
+        }
+    })
+
+}
 nhanvien.init = function(){
     nhanvien.show();
 };
 
 $(document).ready( function () {
-
     nhanvien.init();
 } );

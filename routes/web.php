@@ -29,4 +29,5 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/apiNhanvien', 'NhanvienController@APINhanvien')->name('dashboard.getNV');
     Route::get('/apiNhanvien/{id}', 'NhanvienController@APINhanvienID')->name('dashboard.getNVID');
     Route::put('/apiNhanvien/{id}', 'NhanvienController@APIupdateID')->name('dashboard.updateNVID');
+    Route::get('/apiNhanvien/{id}/del', 'NhanvienController@APIdelID')->name('dashboard.delNVID');
 });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLoaimathangsTable extends Migration
+class AddBansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateLoaimathangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('loaimathangs', function (Blueprint $table) {
-            $table->id();
-            $table->longText('tenloaiMH');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('bans', function (Blueprint $table) {
+            $table->foreign('id_khuvucs')->references('id')->on('khuvucs');
         });
     }
 
@@ -28,6 +25,6 @@ class CreateLoaimathangsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loaimathangs');
+        //
     }
 }

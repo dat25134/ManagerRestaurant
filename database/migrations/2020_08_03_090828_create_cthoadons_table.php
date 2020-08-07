@@ -20,8 +20,8 @@ class CreateCthoadonsTable extends Migration
             $table->integer('khuyenmai');
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('id_hoadons');
-            $table->integer('id_mons');
+            $table->unsignedBigInteger('id_hoadons');
+            $table->unsignedBigInteger('id_mons');
         });
     }
 

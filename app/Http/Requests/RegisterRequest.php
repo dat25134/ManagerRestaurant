@@ -24,7 +24,17 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'name'  => 'required',
         ];
     }
+
+    public function messages()
+{
+    return [
+        'email.required' => 'Email không được để trống',
+        'name.required' => 'Họ và tên không được để trống',
+        'email.email' => 'Không đúng định dạng email',
+    ];
+}
 }

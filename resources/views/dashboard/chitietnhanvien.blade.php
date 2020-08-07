@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <style>
-    .error, #note-error{
+    .error,
+    #note-error {
         color: #dc3545 !important;
         font-size: 1rem !important;
         width: 20rem !important;
@@ -40,9 +41,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 <script src="{{asset('js/nhanvien.js')}}"></script>
 <script src="{{asset('js/snipping.js')}}"></script>
+<!-- Default dropleft button -->
+
 @endsection
 
-<div class="modal fade" style="display: none;" id="add-edit" tabindex="-1" aria-labelledby="add-edit" aria-hidden="true">
+<div class="modal fade" style="display: none;" id="add-edit" tabindex="-1" aria-labelledby="add-edit"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -63,8 +67,8 @@
                                     <span class="input-group-text" id="basic-addon1" style="width:150px">Họ và
                                         tên</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Trần Văn A"
-                                name="name" id="name" data-rule-required="true" data-msg-required="Tên không được để trống">
+                                <input type="text" class="form-control" placeholder="Trần Văn A" name="name" id="name"
+                                    data-rule-required="true" data-msg-required="Tên không được để trống">
                             </div>
                             <div class="text-right" style="">
                                 <label id="name-error" class="error" for="name"></label>
@@ -74,7 +78,9 @@
                                     <span class="input-group-text" id="basic-addon1" style="width:150px">Email</span>
                                 </div>
                                 <input type="email" class="form-control" placeholder="example123@gmail.com"
-                                    aria-label="email" aria-describedby="basic-addon1" name="email" id="email"  data-rule-required="true" data-msg-required="Email không được để trống" data-rule-email=”true”>
+                                    aria-label="email" aria-describedby="basic-addon1" name="email" id="email"
+                                    data-rule-required="true" data-msg-required="Email không được để trống"
+                                    data-rule-email=”true”>
                             </div>
                             <div class="text-right" style="">
                                 <label id="email-error" class="error" for="email"></label>
@@ -85,7 +91,8 @@
                                 </div>
                                 <input type="password" class="form-control" aria-label="password"
                                     aria-describedby="basic-addon1" name="password" autocomplete="new-password"
-                                    id="password"  data-rule-required="true" data-msg-required="Mật khẩu không được để trống">
+                                    id="password" data-rule-required="true"
+                                    data-msg-required="Mật khẩu không được để trống">
                             </div>
                             <div class="text-right" style="">
                                 <label id="password-error" class="error" for="password"></label>
@@ -97,7 +104,8 @@
                                 </div>
                                 <input type="password" class="form-control" aria-label="password_confirmation"
                                     aria-describedby="basic-addon1" name="password_confirmation"
-                                    autocomplete="new-password" id="password-confirm"  data-rule-required="true" data-msg-required="Nhập lại mật khẩu">
+                                    autocomplete="new-password" id="password-confirm" data-rule-required="true"
+                                    data-msg-required="Nhập lại mật khẩu">
                             </div>
                             <div class="text-right" style="">
                                 <label id="password-confirm-error" class="error" for="password-confirm"></label>
@@ -105,9 +113,11 @@
                         </div>
 
                         <div class="input-group mb-3 justify-content-center col-4">
-                        <label class='border' for="inputGroupFile01"><img src="{{asset('images/no-avatar.png')}}" alt="" id="Avatar" style="width:201px;height:200px"></label>
+                            <label class='border' for="inputGroupFile01"><img src="{{asset('images/no-avatar.png')}}"
+                                    alt="" id="Avatar" style="width:201px;height:200px"></label>
                             <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                        aria-describedby="inputGroupFileAddon01" onchange="nhanvien.changeIMG(this)" name="inputGroupFile01" hidden>
+                                aria-describedby="inputGroupFileAddon01" onchange="nhanvien.changeIMG(this)"
+                                name="inputGroupFile01" hidden>
                         </div>
                     </div>
                     <div class="text-left" style="padding-left: 8rem !important">
@@ -120,9 +130,13 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="nhanvien.create()" id="button-submit">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="nhanvien.create()" id="button-submit">Save
+                    changes</button>
             </div>
         </div>
     </div>
 </div>
 <style></style>
+
+
+

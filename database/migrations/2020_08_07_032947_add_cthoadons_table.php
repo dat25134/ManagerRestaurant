@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNhacungcapsTable extends Migration
+class AddCthoadonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateNhacungcapsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhacungcaps', function (Blueprint $table) {
-            $table->id();
-            $table->string('tenNCC');
-            $table->string('diachi');
-            $table->string('sdt');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('cthoadons', function (Blueprint $table) {
+            $table->foreign('id_hoadons')->references('id')->on('hoadons');
+            $table->foreign('id_mons')->references('id')->on('mons');
         });
     }
 
@@ -30,6 +26,6 @@ class CreateNhacungcapsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhacungcaps');
+        //
     }
 }

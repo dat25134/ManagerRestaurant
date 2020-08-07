@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBansTable extends Migration
+class AddCtkhuyenmaisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateBansTable extends Migration
      */
     public function up()
     {
-        Schema::create('bans', function (Blueprint $table) {
-            $table->id();
-            $table->string('tenban');
-            $table->integer('soghe');
-            $table->timestamps();
-            $table->unsignedBigInteger('id_khuvucs');
-            $table->softDeletes();
+        Schema::table('ctkhuyenmais', function (Blueprint $table) {
+            $table->foreign('id_khuyenmais')->references('id')->on('khuyenmais');
+            $table->foreign('id_mons')->references('id')->on('mons');
         });
     }
 
@@ -30,6 +26,6 @@ class CreateBansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bans');
+        //
     }
 }
