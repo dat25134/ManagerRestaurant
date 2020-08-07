@@ -19,6 +19,6 @@ Tài liệu tham khảo
 - Sử dụng jquery 3.5.1
 </p>
 <h2> Mô hình mối quan hệ </h2>
-<img src='images/123.png' alt="Moiquanhe">
+<img src='https://github.com/dat25134/ManagerRestaurant/blob/master/public/images/123.png' alt="Moiquanhe">
 <h2> Mô hình chức năng </h2>
 <img src='https://i.imgur.com/2EoL3HG.jpg' alt="Moiquanhe">
