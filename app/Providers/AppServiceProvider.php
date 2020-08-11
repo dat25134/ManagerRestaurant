@@ -6,6 +6,8 @@ use App\Http\Repositories\CTKMRepository;
 use App\Http\Repositories\CTKMRepositoryInterface;
 use App\Http\Repositories\CuponRepository;
 use App\Http\Repositories\CuponRepositoryInterface;
+use App\Http\Repositories\FamilyRepository;
+use App\Http\Repositories\FamilyRepositoryInterface;
 use App\Http\Repositories\KhuvucBanRepository;
 use App\Http\Repositories\KhuvucBanRepositoryInterface;
 use App\Http\Repositories\MonRepository;
@@ -28,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(MonRepositoryInterface::class, MonRepository::class);
         $this->app->singleton(CTKMRepositoryInterface::class, CTKMRepository::class);
         $this->app->singleton(CuponRepositoryInterface::class, CuponRepository::class);
+        $this->app->singleton(FamilyRepositoryInterface::class, FamilyRepository::class);
     }
 
     /**

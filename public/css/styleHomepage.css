@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+
+#head-title{
+    font-family: "Sofia", serif;
+    font-size: 35px;
+    color: rgba(124, 78, 58, 0.8)
+}
+
+#menu{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 60px;
+    color: #664d42;
+}
+
+.nav-bottom{
+    padding: 10px 15px;
+    color: #3f3530 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
