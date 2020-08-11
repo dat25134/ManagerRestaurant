@@ -15,6 +15,7 @@ class CreateBansTable extends Migration
     {
         Schema::create('bans', function (Blueprint $table) {
             $table->id();
+            $table->string('ma_ban');
             $table->string('tenban');
             $table->integer('soghe');
             $table->timestamps();

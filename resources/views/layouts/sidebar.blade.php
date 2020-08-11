@@ -36,9 +36,10 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chi tiết</h6>
-                <a class="collapse-item" href="buttons.html">Chi tiết các món ăn</a>
+            <a class="collapse-item" href="{{ route('dashboard.monsIndex')}}">Quản lý món ăn</a>
             <a class="collapse-item" href="{{route('dashboard.nhanvien')}}">Chi tiết Nhân viên</a>
-                <a class="collapse-item" href="cards.html">Chương trình khuyến mãi</a>
+            <a class="collapse-item" href="{{ route('dashboard.ctkmIndex')}}">Quản lý khuyến mãi</a>
+            <a class="collapse-item" href="{{ route('dashboard.cuponIndex')}}">Chi tiết khuyến mãi</a>
             </div>
         </div>
     </li>
@@ -53,28 +54,11 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chi tiết</h6>
-                <a class="collapse-item" href="buttons.html">Chi tiết KV bàn</a>
+            <a class="collapse-item" href="{{route('dashboard.bans')}}">Chi tiết KV bàn</a>
             </div>
         </div>
     </li>
 
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Quản lý xuất nhập kho</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Chi tiết: </h6>
-                <a class="collapse-item" href="utilities-color.html">Chi tiết các mặt hàng</a>
-                <a class="collapse-item" href="utilities-color.html">Chi tiết xuất nhập Kho</a>
-                <a class="collapse-item" href="utilities-color.html">Các nhà cung cấp</a>
-            </div>
-        </div>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">

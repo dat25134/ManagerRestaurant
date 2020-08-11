@@ -11,6 +11,6 @@ class Khuvuc extends Model
     protected $dates = ['deleted_at'];
     public function bans()
     {
-        return $this->hasMany(Ban::class);
+        return $this->hasMany(Ban::class,'id_khuvucs','id');
     }
 }

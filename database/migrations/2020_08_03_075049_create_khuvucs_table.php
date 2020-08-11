@@ -15,7 +15,7 @@ class CreateKhuvucsTable extends Migration
     {
         Schema::create('khuvucs', function (Blueprint $table) {
             $table->id();
-            $table->string('Tenkhuvuc');
+            $table->string('Tenkhuvuc')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

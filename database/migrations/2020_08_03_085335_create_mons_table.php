@@ -15,14 +15,13 @@ class CreateMonsTable extends Migration
     {
         Schema::create('mons', function (Blueprint $table) {
             $table->id();
-            $table->string('tukhoa');
             $table->string('tenmon');
-            $table->string('tentienganh');
+            $table->string('tentienganh')->nullable();
             $table->double('gia');
+            $table->string('nhommons');
+            $table->string('donvitinhs');
             $table->timestamps();
             $table->softDeletes();
-            $table->unsignedBigInteger('id_nhommons');
-            $table->unsignedBigInteger('id_donvitinhs');
         });
     }
 

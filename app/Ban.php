@@ -11,7 +11,7 @@ class Ban extends Model
     protected $dates = ['deleted_at'];
     public function khuvuc()
     {
-        return $this->belongsTo(Khuvuc::class,'id_khuvucs');
+        return $this->belongsTo(Khuvuc::class,'id_khuvucs','id');
     }
 
     public function hoadons(){

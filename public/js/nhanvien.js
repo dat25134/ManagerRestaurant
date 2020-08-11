@@ -188,6 +188,7 @@ nhanvien.edit = function(){
         }
     })
 }
+
 nhanvien.confirm =function(id){
     bootbox.confirm({
         size: "small",
@@ -216,6 +217,8 @@ nhanvien.del = function(id){
     })
 
 }
+
+
 nhanvien.init = function(){
     nhanvien.show();
 };

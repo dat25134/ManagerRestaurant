@@ -14,7 +14,6 @@ class AddHoadonsTable extends Migration
     public function up()
     {
         Schema::table('hoadons', function (Blueprint $table) {
-            $table->foreign('id_vats')->references('id')->on('vats');
             $table->foreign('id_bans')->references('id')->on('bans');
             $table->foreign('id_giamgias')->references('id')->on('giamgias');
             $table->foreign('id_users')->references('id')->on('users');
