@@ -69,10 +69,19 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::group(['prefix' => 'cupon'], function () {
         Route::get('/', 'CuponController@cuponIndex')->name('dashboard.cuponIndex');
         Route::get('/cuponAPI', 'CuponController@cuponAPI')->name('dashboard.cuponAPI');
-        // Route::post('/create', 'CTKMController@createCTKM')->name('dashboard.createCTKM');
-        // Route::get('/ctkmAPI/{id}', 'CTKMController@getCTKMAPI')->name('dashboard.getCTKMAPI');
-        // Route::put('/editCTKM/{id}', 'CTKMController@editCTKM')->name('dashboard.editCTKM');
-        // Route::delete('/delCTKM/{id}', 'CTKMController@delCTKM')->name('dashboard.delCTKM');
+        Route::post('/create', 'CuponController@createCupon')->name('dashboard.createCupon');
+        Route::get('/cuponAPI/{id}', 'CuponController@getCuponAPI')->name('dashboard.getCuponAPI');
+        Route::put('/editCupon/{id}', 'CuponController@editCupon')->name('dashboard.editCupon');
+        Route::delete('/delCupon/{id}', 'CuponController@delCupon')->name('dashboard.delCupon');
     });
 
+});
+
+Route::group(['prefix' => 'family'], function () {
+    Route::get('/', 'FamilyController@index')->name('dashboard.FamilyIndex');
+    // Route::get('/cuponAPI', 'CuponController@cuponAPI')->name('dashboard.cuponAPI');
+    // Route::post('/create', 'CuponController@createCupon')->name('dashboard.createCupon');
+    // Route::get('/cuponAPI/{id}', 'CuponController@getCuponAPI')->name('dashboard.getCuponAPI');
+    // Route::put('/editCupon/{id}', 'CuponController@editCupon')->name('dashboard.editCupon');
+    // Route::delete('/delCupon/{id}', 'CuponController@delCupon')->name('dashboard.delCupon');
 });

@@ -6,6 +6,7 @@ cupon.showCTKM = function(){
         method : "get",
         dataType : "json",
         success : function(data){
+            $('#CTKM').empty();
             $.each(data,function(i,v){
                 $('#CTKM').append(
                     `<option value='${v.id}'>${v.tenKM}</option>`
@@ -21,6 +22,7 @@ cupon.showMon = function(){
         method : "get",
         dataType : "json",
         success : function(data){
+            $('#tenmons').empty();
             $.each(data,function(i,v){
                 $('#tenmons').append(
                     `<option value='${v.id}'>${v.tenmon}</option>`
@@ -82,16 +84,14 @@ cupon.closeModal = function(){
 
 cupon.infoModal = function(id){
     $.ajax({
-        url: `http://localhost:8000/dashboard/cupon/monAPI/${id}`,
+        url: `http://localhost:8000/dashboard/cupon/cuponAPI/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
             $('#id').val(data.id);
-            $('#name').val(data.tenmon);
-            $('#nameEng').val(data.tentienganh);
-            $('#gia').val(data.gia);
-            $('#nhomcupon').val(data.nhomcupon);
-            $('#donvitinhs').val(data.donvitinhs);
+            $('#phantramKM').val(data.phantramKM);
+            $('#CTKM').val(data.id_khuyenmais);
+            $('#tenmons').val(data.id_mons);
         },
     });
 }
@@ -115,11 +115,9 @@ cupon.resetModal = function(){
 cupon.create =function(){
      if ($('#reg-form').valid()){
         var data = {};
-        data.name = $('#name').val();
-        data.nameEng = $('#nameEng').val();
-        data.gia = $('#gia').val();
-        data.nhomcupon = $('#nhomcupon').val();
-        data.donvitinhs = $('#donvitinhs').val();
+        data.phantramKM = $('#phantramKM').val();
+        data.CTKM = $('#CTKM').val();
+        data.tenmon = $('#tenmons').val();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -132,7 +130,7 @@ cupon.create =function(){
             success : function(){
                 cupon.closeModal();
                 cupon.resetModal();
-                cupon.toastrNoti('success','Thêm mới món ăn thành công');
+                cupon.toastrNoti('success','Thêm mới chi tiết KM thành công');
                 $('#myTable').DataTable().destroy();
                 cupon.show();
             },
@@ -175,31 +173,27 @@ cupon.toastrNoti = function(type,string){
 
 cupon.edit = function(){
     id = $('#id').val();
-    name = $('#name').val();
-    nameEng = $('#nameEng').val();
-    gia = $('#gia').val();
-    nhomcupon = $('#nhomcupon').val();
-    donvitinhs = $('#donvitinhs').val();
+    phantramKM = $('#phantramKM').val();
+    id_khuyenmais = $('#CTKM').val();
+    id_mons = $('#tenmons').val();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
     $.ajax({
-        url:`http://localhost:8000/dashboard/cupon/editMon/${id}`,
+        url:`http://localhost:8000/dashboard/cupon/editCupon/${id}`,
         method:'put',
         dataType:'json',
         data: {
-            name:name,
-            nameEng:nameEng,
-            gia:gia,
-            nhomcupon:nhomcupon,
-            donvitinhs:donvitinhs
+            phantramKM:phantramKM,
+            CTKM:id_khuyenmais,
+            tenmon:id_mons,
         },
         success: function(data){
             cupon.closeModal();
             cupon.resetModal();
-            cupon.toastrNoti('success',`Chỉnh sửa món ${name} thành công`);
+            cupon.toastrNoti('success',`Chỉnh sửa chi tiết KM thành công`);
             $('#myTable').DataTable().destroy();
             cupon.show();
         },
@@ -224,11 +218,11 @@ cupon.del = function(id){
         }
     });
     $.ajax({
-        url: `http://localhost:8000/dashboard/cupon/delMon/${id}`,
+        url: `http://localhost:8000/dashboard/cupon/delCupon/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(data){
-            cupon.toastrNoti('success',`Xóa thành công ${data.tenmon}`);
+            cupon.toastrNoti('success',`Xóa thành công chi tiết KM`);
             $('#myTable').DataTable().destroy();
             cupon.show();
         },
@@ -241,6 +235,8 @@ cupon.del = function(id){
 
 cupon.init = function(){
     cupon.show();
+    cupon.showCTKM();
+    cupon.showMon();
 };
 
 $(document).ready( function () {

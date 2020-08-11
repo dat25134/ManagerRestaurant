@@ -25,7 +25,7 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Phần trăm KM(%)</th>
+                <th>% KM(%)</th>
                 <th>CTKM</th>
                 <th>Tên món</th>
                 <th>Nhóm món</th>
