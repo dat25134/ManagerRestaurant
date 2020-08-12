@@ -18,3 +18,8 @@
     font-weight: bold;
     text-transform: uppercase;
 }
+
+.form-combo{
+    height: 500px;
+    margin: 0 0.5rem;
+}

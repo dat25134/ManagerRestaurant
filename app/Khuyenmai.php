@@ -11,6 +11,6 @@ class Khuyenmai extends Model
     protected $dates = ['deleted_at'];
 
     public function ctkhuyenmais(){
-        return $this->hasMany(Ctkhuyenmai::class);
+        return $this->hasMany(Ctkhuyenmai::class,'id_khuyenmais','id');
     }
 }

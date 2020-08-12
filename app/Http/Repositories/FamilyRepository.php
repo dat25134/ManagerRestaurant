@@ -2,6 +2,7 @@
 namespace App\Http\Repositories;
 
 use App\Banner;
+use App\Khuyenmai;
 use App\Mon;
 
 class FamilyRepository implements FamilyRepositoryInterface
@@ -18,5 +19,12 @@ class FamilyRepository implements FamilyRepositoryInterface
         $mons = Mon::all();
 
         return $mons;
+    }
+
+    public function getCTKM(){
+        $ctkms = Khuyenmai::all();
+
+
+        return $ctkms;
     }
 }

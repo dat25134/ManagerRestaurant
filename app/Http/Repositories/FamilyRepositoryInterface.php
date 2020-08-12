@@ -5,4 +5,5 @@ interface FamilyRepositoryInterface
 {
     public function getBanner();
     public function getMon();
+    public function getCTKM();
 }

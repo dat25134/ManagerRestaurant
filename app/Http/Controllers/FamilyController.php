@@ -17,7 +17,9 @@ class FamilyController extends Controller
     public function index(){
         $banners = $this->familyRepository->getBanner();
         $mons = $this->familyRepository->getMon();
+        $ctkms = $this->familyRepository->getCTKM();
+        return response()->json($ctkms, 200);
 
-        return view('family.index', compact('banners','mons'));
+        return view('family.index', compact('banners','mons','ctkms'));
     }
 }
