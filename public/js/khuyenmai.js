@@ -8,13 +8,15 @@ ctkms.show = function(){
         success : function(data){
             $('#myTable tbody').empty();
             $.each(data,function(i,v){
+                date = new Date(v.created_at);
                 $('#myTable tbody').append(
                     `<tr>
                         <td>${v.id}</td>
                         <td>${v.tenKM}</td>
+                        <td>${v.phantramKM}</td>
                         <td>${v.tungay}</td>
                         <td>${v.denngay}</td>
-                        <td>${v.created_at}</td>
+                        <td>${date.toDateString()}</td>
                         <td class="text-center">
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="ctkms.openModal(this),ctkms.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>
@@ -91,6 +93,7 @@ ctkms.create =function(){
     if ($('#reg-form').valid()){
        var data = {};
        data.name = $('#name').val();
+       data.phantramKM = $('#phantramKM').val();
        data.tungay = $('#tungay').val();
        data.denngay = $('#denngay').val();
        $.ajaxSetup({
@@ -128,6 +131,7 @@ ctkms.create =function(){
 ctkms.edit = function(){
     id = $('#id').val();
     name = $('#name').val();
+    phantramKM = $('#phantramKM').val();
     tungay = $('#tungay').val();
     denngay = $('#denngay').val();
     $.ajaxSetup({
@@ -141,6 +145,7 @@ ctkms.edit = function(){
         dataType:'json',
         data: {
             name:name,
+            phantramKM:phantramKM,
             tungay:tungay,
             denngay:denngay,
         },

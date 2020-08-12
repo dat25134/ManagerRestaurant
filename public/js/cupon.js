@@ -40,14 +40,14 @@ cupon.show = function(){
         success : function(data){
             $('#myTable tbody').empty();
             $.each(data,function(i,v){
+                date = new Date(v.created_at);
                 $('#myTable tbody').append(
                     `<tr>
                         <td>${v.id}</td>
-                        <td>${v.phantramKM}</td>
                         <td>${v.khuyenmai.tenKM}</td>
                         <td>${v.mon.tenmon}</td>
                         <td>${v.mon.nhommons}</td>
-                        <td>${v.created_at}</td>
+                        <td>${date.toDateString()}</td>
                         <td class="text-center">
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="cupon.openModal(this),cupon.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>
@@ -115,7 +115,6 @@ cupon.resetModal = function(){
 cupon.create =function(){
      if ($('#reg-form').valid()){
         var data = {};
-        data.phantramKM = $('#phantramKM').val();
         data.CTKM = $('#CTKM').val();
         data.tenmon = $('#tenmons').val();
         $.ajaxSetup({
@@ -173,9 +172,8 @@ cupon.toastrNoti = function(type,string){
 
 cupon.edit = function(){
     id = $('#id').val();
-    phantramKM = $('#phantramKM').val();
     id_khuyenmais = $('#CTKM').val();
-    id_mons = $('#tenmons').val();
+    tenmon = $('#tenmons').val();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -186,9 +184,8 @@ cupon.edit = function(){
         method:'put',
         dataType:'json',
         data: {
-            phantramKM:phantramKM,
             CTKM:id_khuyenmais,
-            tenmon:id_mons,
+            tenmon:tenmon,
         },
         success: function(data){
             cupon.closeModal();

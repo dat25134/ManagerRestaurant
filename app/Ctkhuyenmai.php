@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ctkhuyenmai extends Model
 {
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
+    // use SoftDeletes;
+    // protected $dates = ['deleted_at'];
 
     public function khuyenmai(){
         return $this->belongsTo(Khuyenmai::class,'id_khuyenmais');

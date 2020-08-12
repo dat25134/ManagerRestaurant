@@ -8,6 +8,7 @@ mons.show = function(){
         success : function(data){
             $('#myTable tbody').empty();
             $.each(data,function(i,v){
+                date = new Date(v.created_at);
                 $('#myTable tbody').append(
                     `<tr>
                         <td>${v.id}</td>
@@ -16,7 +17,7 @@ mons.show = function(){
                         <td>${Number(v.gia).toLocaleString('en')+ ' VNĐ'}</td>
                         <td>${v.nhommons}</td>
                         <td>${v.donvitinhs}</td>
-                        <td>${v.created_at}</td>
+                        <td>${date.toDateString()}</td>
                         <td class="text-center">
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="mons.openModal(this),mons.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>

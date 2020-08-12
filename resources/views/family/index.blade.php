@@ -38,21 +38,22 @@
 </div>
 
 {{-- logo cửa hàng --}}
-<div class="text-center ">
+<div class="text-center mt-3">
     <img src="{{asset('images/logo.png')}}" alt="logo" class="rounded-pill" style="width:200px">
 </div>
 
 {{-- title --}}
-<h1 class="animate text-center mt-4 container" id="head-title"> ---- Nhà Hàng Family ---- </h1>
+<h1 class="animate text-center mt-4 container title" id="head-title"> ---- Nhà Hàng Family ---- </h1>
 
 {{-- menu --}}
-<div class="container-fluid" style="background-color: #f7f7f7">
-    <h2 class="container text-center mt-3" id="menu"> Menu </h2>
+<div class="container-fluid pt-2 pb-2 mt-2 mb-2" style="background-color: #f7f7f7">
+    <h2 class="container text-center mt-3 title" id="menu"> Menu </h2>
+    <hr>
     <div class="container mons">
         <div class="row row-cols-2">
             @foreach ($mons as $item)
             <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3 border border-secondary" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="{{asset('images/download.jpg')}}" class="card-img" alt="anh">
@@ -71,6 +72,11 @@
             @endforeach
         </div>
     </div>
+    <div class="text-center mb-2">
+        <a href="#" class="btn btn-primary rounded-pill shadow" style="font-size: 130%; font-weight:bold;"> Xem thêm...
+        </a>
+    </div>
+
 </div>
 
 {{-- chương trình khuyến mãi --}}
@@ -82,8 +88,9 @@
         </div>
         <div class="p-2 bd-highlight text-white">
             <h5 style="font-variant: petite-caps;font-family: cursive;">Combo Sale</h5>
-            <h2 style="letter-spacing: -2px;font-weight: bold;">Chương trình khuyến mãi</h2>
-            <h4 style="font-size: inherit;font-weight: 100;font-style: italic;">Chỉ áp dụng cho Thứ 7</h4>
+            <h2 style="letter-spacing: 0px;font-weight: bold; font-family: cursive;">Chương trình khuyến mãi</h2>
+            <h4 style="font-size: inherit;font-weight: 100;font-style: italic; font-family: cursive;">Chỉ áp dụng cho
+                Thứ 7</h4>
         </div>
     </div>
 </div>
@@ -91,89 +98,145 @@
 {{-- combo --}}
 <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
     <div class="carousel-inner">
+        @foreach ($ctkms as $key => $item)
+        @if ($key == 0)
         <div class="carousel-item active">
             <div class="row row-cols-3 justify-content-center">
-                <div class="col-3 form-combo border shadow">Column</div>
-                <div class="col-3 form-combo border shadow">Column</div>
-                <div class="col-3 form-combo border shadow">Column</div>
-            </div>
-        </div>
-    </div>
-    <a class="carousel-control-prev text-danger" style="font-size:50px" href="#carouselExampleControls" role="button"
-        data-slide="prev">
-        <i class="fas fa-chevron-left"></i>
-    </a>
-    <a class="carousel-control-next text-danger" href="#carouselExampleControls" role="button" data-slide="next"
-        style="font-size:50px">
-        <i class="fas fa-chevron-right"></i>
-    </a>
-</div>
+                @foreach ($item as $key=>$val)
+                @switch($key)
+                @case(0)
+                <div class="col-3 form-combo border shadow" style="background-color: #68d0af">
+                    @break
+                    @case(1)
+                    <div class="col-3 form-combo border shadow" style="background-color: #d2d86f">
+                        @break
+                        @default
+                        <div class="col-3 form-combo border shadow" style="background-color: #83bed7">
+                            @endswitch
+                            <img src="..." class="card-img-top" alt="...">
+                            <h5 class="">{{$val['tenKM']}}</h5>
+                            <p class="">{{$val['ngaybd']}}</p>
+                            <p class="">{{$val['ngaykt']}}</p>
+                            <ul class="">
+                                @for ($i = 0; $i < count($val['mons']['tenmon']); $i++)
+                                <li class="">
+                                    {{$val['mons']['tenmon'][$i].':'.$val['mons']['nhommon'][$i]}}</li>
+                                    <hr>
+                                @endfor
+                            </ul>
+                        </div>
+                        @endforeach
+                    </div>
 
-{{-- feedback --}}
-<div class="container-fluid" style="background: url(images/bg-fb.jpg) center no-repeat;background-size: cover;">
-    <div class="logo text-center">
-        <img src="{{asset('images/logo.png')}}" alt="logo" class="rounded-pill" style="width:200px">
-    </div>
-
-    <h1 class="animate text-center mt-4 container" id="head-title"> ---- FEED BACK ---- </h1>
-
-    <h1 class="text-center">Khách hàng</h1>
-    <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col-5">
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="{{asset('images/kh1.jpg')}}" alt="" class="rounded-circle" style="width:150px;height:150px">
+                </div>
+                @else
+                <div class="carousel-item">
+                    <div class="row row-cols-3 justify-content-center">
+                        @foreach ($item as $key=>$val)
+                        @switch($key)
+                        @case(1)
+                        <div class="col-3 form-combo border shadow" style="background-color: #d2d86f">{{$val['tenKM']}}
+                            @break
+                            @case(2)
+                            <div class="col-3 form-combo border shadow" style="background-color: #d2d86f">
+                                {{$val['tenKM']}}
                             </div>
-                            <div class="col-8" style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                <h2>Lê Thạnh</h2>
-                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                            @break
+                            @default
+                            <div class="col-3 form-combo border shadow" style="background-color: #83bed7">
+                                {{$val['tenKM']}}
                             </div>
+                            @endswitch
+                            @endforeach
                         </div>
                     </div>
-                    <div class="col-5">
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle" style="width:150px;height:150px">
+                    @endif
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev text-danger" style="font-size:50px" href="#carouselExampleControls"
+                    role="button" data-slide="prev">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a class="carousel-control-next text-danger" href="#carouselExampleControls" role="button"
+                    data-slide="next" style="font-size:50px">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            {{-- feedback --}}
+            <div class="container-fluid pt-2 pb-2"
+                style="background: url(images/bg-fb.jpg) center no-repeat;background-size: cover;">
+                <div class="logo text-center">
+                    <img src="{{asset('images/logo.png')}}" alt="logo" class="rounded-pill" style="width:200px">
+                </div>
+
+                <h1 class="animate text-center mt-4 container" id="head-title"> ---- FEED BACK ---- </h1>
+
+                <h1 class="text-center">Khách hàng</h1>
+                <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="{{asset('images/kh1.jpg')}}" alt="" class="rounded-circle"
+                                                style="width:150px;height:150px">
+                                        </div>
+                                        <div class="col-8"
+                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                            <h2>Lê Thạnh</h2>
+                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle"
+                                                style="width:150px;height:150px">
+                                        </div>
+                                        <div class="col-8"
+                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                            <h2>Đức Phạm</h2>
+                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-8" style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                <h2>Đức Phạm</h2>
-                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle"
+                                                style="width:150px;height:150px">
+                                        </div>
+                                        <div class="col-8"
+                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                            <h2>Lê Thạnh</h2>
+                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="{{asset('images/kh3.jpg')}}" alt="" class="rounded-circle"
+                                                style="width:150px;height:150px">
+                                        </div>
+                                        <div class="col-8"
+                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                            <h2>Đức Phạm</h2>
+                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-5">
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle" style="width:150px;height:150px">
-                            </div>
-                            <div class="col-8" style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                <h2>Lê Thạnh</h2>
-                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-5">
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="{{asset('images/kh3.jpg')}}" alt="" class="rounded-circle" style="width:150px;height:150px">
-                            </div>
-                            <div class="col-8" style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                <h2>Đức Phạm</h2>
-                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@include('layouts.footer')
-@endsection
+            @include('layouts.footer')
+            @endsection

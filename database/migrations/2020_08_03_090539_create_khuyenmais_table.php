@@ -16,6 +16,7 @@ class CreateKhuyenmaisTable extends Migration
         Schema::create('khuyenmais', function (Blueprint $table) {
             $table->id();
             $table->string('tenKM');
+            $table->integer('phantramKM');
             $table->date('tungay');
             $table->date('denngay');
             $table->timestamps();

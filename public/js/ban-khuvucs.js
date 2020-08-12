@@ -26,12 +26,13 @@ khuvuc_ban.show = function(){
         success : function(data){
             $('#myTable tbody').empty();
             $.each(data,function(i,v){
+                date = new Date(v.created_at);
                 $('#myTable tbody').append(
                     `<tr>
                         <td>${v.id}</td>
                         <td class = "cursor" onclick = 'khuvuc_ban.get(),bans.show(${v.id})'>${v.Tenkhuvuc}</td>
                         <td>${v.bans.length}</td>
-                        <td>${v.created_at}</td>
+                        <td>${date.toDateString()}</td>
                         <td class="text-center">
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="khuvuc_ban.openModal(this),khuvuc_ban.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>

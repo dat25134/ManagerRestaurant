@@ -14,6 +14,7 @@ class CTKMRepository implements CTKMRepositoryInterface
     public function create($request){
         $ctkm = new Khuyenmai();
         $ctkm->tenKM = $request->name;
+        $ctkm->phantramKM = $request->phantramKM;
         $ctkm->tungay = $request->tungay;
         $ctkm->denngay = $request->denngay;
         $ctkm->save();
@@ -30,6 +31,7 @@ class CTKMRepository implements CTKMRepositoryInterface
     public function edit($request){
         $ctkm = Khuyenmai::find($request->id);
         $ctkm->tenKM = $request->name;
+        $ctkm->phantramKM = $request->phantramKM;
         $ctkm->tungay = $request->tungay;
         $ctkm->denngay = $request->denngay;
         $ctkm->save();

@@ -15,9 +15,8 @@ class CreateCtkhuyenmaisTable extends Migration
     {
         Schema::create('ctkhuyenmais', function (Blueprint $table) {
             $table->id();
-            $table->integer('phantramKM');
             $table->timestamps();
-            $table->softDeletes();
+            // $table->softDeletes();
             $table->unsignedBigInteger('id_khuyenmais');
             $table->unsignedBigInteger('id_mons');
         });

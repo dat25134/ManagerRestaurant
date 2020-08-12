@@ -19,13 +19,14 @@ function showAll_bans(){
         success : function(data){
             $('#myTableBans tbody').empty();
             $.each(data,function(i,v){
+                date = new Date(v.created_at);
                 $('#myTableBans tbody').append(
                     `<tr>
                         <td>${v.id}</td>
                         <td>${v.tenban}</td>
                         <td>${v.soghe}</td>
                         <td>${v.khuvuc.Tenkhuvuc}</td>
-                        <td>${v.created_at}</td>
+                        <td>${date.toDateString()}</td>
                         <td class="text-center">
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="khuvuc_ban.openModal(this),bans.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>
@@ -75,13 +76,14 @@ bans.show = function(idKV){
             $('#myTableBans').show();
             bans.idKV=idKV;
             $.each(data,function(i,v){
+                date = new Date(v.created_at);
                 $('#myTableBans tbody').append(
                     `<tr>
                         <td>${v.id}</td>
                         <td>${v.tenban}</td>
                         <td>${v.soghe}</td>
                         <td>${v.khuvuc.Tenkhuvuc}</td>
-                        <td>${v.created_at}</td>
+                        <td>${date.toDateString()}</td>
                         <td class="text-center">
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="khuvuc_ban.openModal(this),bans.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>

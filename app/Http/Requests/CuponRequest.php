@@ -24,16 +24,15 @@ class CuponRequest extends FormRequest
     public function rules()
     {
         return [
-            'phantramKM' => "required | numeric | between:0,100",
+            'tenmon' => 'required|unique:ctkhuyenmais,id_mons'
         ];
     }
 
     public function messages()
     {
         return [
-            'phantramKM.required' => "Phần trăm KM không được để trống",
-            'phantramKM.numeric' => 'Phần trăm KM phải là một số',
-            'phantramKM.between' => 'Phần trăm KM phải nằm trong khoảng 0-100',
+            'tenmon.required' => 'Tên món không được để trống',
+            'tenmon.unique' => 'Món ăn đã nằm trong CTKM khác'
         ];
     }
 }

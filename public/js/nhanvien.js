@@ -22,13 +22,14 @@ nhanvien.show = function(){
         success : function(data){
             $('#myTable tbody').empty();
             $.each(data,function(i,v){
+                date = new Date(v.created_at);
                 $('#myTable tbody').append(
                     `<tr>
                         <td>${v.id}</td>
                         <td>${v.name}</td>
                         <td><img src="${v.image64}" style="width:60px; height: 60px; border-radius:50%"></td>
                         <td>${v.email}</td>
-                        <td>${v.created_at}</td>
+                        <td>${date.toDateString()}</td>
                         <td class="text-center">
                             <a href="javascript:;" class="text-primary mr-5"
                                     onclick="nhanvien.openModal(this),nhanvien.infoModal(${v.id})"><i class="fas fa-pencil-alt"></i></a>

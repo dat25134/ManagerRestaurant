@@ -25,7 +25,6 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>% KM(%)</th>
                 <th>CTKM</th>
                 <th>Tên món</th>
                 <th>Nhóm món</th>
@@ -61,17 +60,6 @@
                         <div class="col-12">
                             <div class="input-group mb-3" style="display:none">
                                 <input type="text" name="id" id="id">
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon0" style="width:150px">% KM</span>
-                                </div>
-                                <input type="text" class="form-control" name="phantramKM" id="phantramKM"
-                                    data-rule-required="true" data-msg-required="Nhập % khuyến mãi">
-                            </div>
-                            <div class="text-right" style="">
-                                <label id="phantramKM-error" class="error" for="phantramKM"></label>
                             </div>
 
                             <div class="input-group mb-3">

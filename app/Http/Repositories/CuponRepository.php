@@ -13,7 +13,6 @@ class CuponRepository implements CuponRepositoryInterface
 
     public function create($request){
         $cupon = new Ctkhuyenmai();
-        $cupon->phantramKM = $request->phantramKM;
         $cupon->id_khuyenmais = $request->CTKM;
         $cupon->id_mons = $request->tenmon;
         $cupon->save();
@@ -29,7 +28,6 @@ class CuponRepository implements CuponRepositoryInterface
 
     public function edit($request){
         $cupon = Ctkhuyenmai::find($request->id);
-        $cupon->phantramKM = $request->phantramKM;
         $cupon->id_khuyenmais = $request->CTKM;
         $cupon->id_mons = $request->tenmon;
         $cupon->save();

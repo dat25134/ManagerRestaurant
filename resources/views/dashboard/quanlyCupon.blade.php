@@ -26,6 +26,7 @@
             <tr>
                 <th>#</th>
                 <th>Tên CTKM</th>
+                <th>% KM</th>
                 <th>Từ ngày</th>
                 <th>Đến ngày</th>
                 <th>Ngày tạo</th>
@@ -33,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-            <td class="spinner text-center" colspan="8"><i class="fa fa-spinner fa-spin" style="font-size:48px"></i>
+            <td class="spinner text-center" colspan="7"><i class="fa fa-spinner fa-spin" style="font-size:48px"></i>
             </td>
         </tbody>
     </table>
@@ -71,6 +72,17 @@
                             </div>
                             <div class="text-right" style="">
                                 <label id="name-error" class="error" for="name"></label>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon0" style="width:150px">% KM</span>
+                                </div>
+                                <input type="text" class="form-control" name="phantramKM" id="phantramKM"
+                                    data-rule-required="true" data-msg-required="Nhập % khuyến mãi">
+                            </div>
+                            <div class="text-right" style="">
+                                <label id="phantramKM-error" class="error" for="phantramKM"></label>
                             </div>
 
                             <div class="input-group mb-3">

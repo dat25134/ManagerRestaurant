@@ -27,6 +27,7 @@ class CTKMRequest extends FormRequest
             'name' => 'required|min:10',
             'tungay' =>'required|date',
             'denngay' => 'required|date',
+            'phantramKM' => "required | numeric | between:0,100",
         ];
     }
 
@@ -39,6 +40,9 @@ class CTKMRequest extends FormRequest
             'tungay.date' => "Ngày bắt đầu phải là ngày tháng",
             'denngay.required' => "Ngày bắt đầu không được để trống",
             'denngay.date' => "Ngày bắt đầu phải là ngày tháng",
+            'phantramKM.required' => "Phần trăm KM không được để trống",
+            'phantramKM.numeric' => 'Phần trăm KM phải là một số',
+            'phantramKM.between' => 'Phần trăm KM phải nằm trong khoảng 0-100',
         ];
     }
 
