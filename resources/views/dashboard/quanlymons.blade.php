@@ -1,3 +1,5 @@
+@if (Auth::user()->role==1)
+
 @extends('layouts.formDashboard')
 @section('title','Dashboard')
 
@@ -42,6 +44,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 <script src="{{asset('js/mons.js')}}"></script>
+<script src="{{asset('js/snipping.js')}}"></script>
 <!-- Default dropleft button -->
 
 @endsection
@@ -68,8 +71,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon0" style="width:150px">Tên món</span>
                                 </div>
-                                <input type="text" class="form-control" name="name" id="name"
-                                    data-rule-required="true" data-msg-required="Tên không được để trống">
+                                <input type="text" class="form-control" name="name" id="name" data-rule-required="true"
+                                    data-msg-required="Tên không được để trống">
                             </div>
                             <div class="text-right" style="">
                                 <label id="name-error" class="error" for="name"></label>
@@ -77,10 +80,11 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1" style="width:150px">Tên tiếng anh</span>
+                                    <span class="input-group-text" id="basic-addon1" style="width:150px">Tên tiếng
+                                        anh</span>
                                 </div>
-                                <input type="text" class="form-control"
-                                    aria-label="email" aria-describedby="basic-addon1" name="nameEng" id="nameEng">
+                                <input type="text" class="form-control" aria-label="email"
+                                    aria-describedby="basic-addon1" name="nameEng" id="nameEng">
                             </div>
                             <div class="text-right" style="">
                                 <label id="nameEng-error" class="error" for="nameEng"></label>
@@ -90,9 +94,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon2" style="width:150px">Giá</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="gia"
-                                    aria-describedby="basic-addon2" name="gia"
-                                    id="gia" data-rule-required="true"
+                                <input type="text" class="form-control" aria-label="gia" aria-describedby="basic-addon2"
+                                    name="gia" id="gia" data-rule-required="true"
                                     data-msg-required="Giá không được để trống">
                             </div>
                             <div class="text-right" style="">
@@ -103,8 +106,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon3" style="width:150px">Nhóm món</span>
                                 </div>
-                                <input type="text" class="form-control"
-                                    aria-describedby="basic-addon3" name="nhommons"
+                                <input type="text" class="form-control" aria-describedby="basic-addon3" name="nhommons"
                                     id="nhommons" data-rule-required="true"
                                     data-msg-required="Nhóm món không được để trống">
                             </div>
@@ -114,11 +116,11 @@
 
                             <div class="input-group mb-3 none-show-edit">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon4" style="width:150px">Đơn vị tính</span>
+                                    <span class="input-group-text" id="basic-addon4" style="width:150px">Đơn vị
+                                        tính</span>
                                 </div>
-                                <input type="text" class="form-control"
-                                    aria-describedby="basic-addon4" name="donvitinhs"
-                                    id="donvitinhs" data-rule-required="true"
+                                <input type="text" class="form-control" aria-describedby="basic-addon4"
+                                    name="donvitinhs" id="donvitinhs" data-rule-required="true"
                                     data-msg-required="Đơn vị không được để trống">
                             </div>
                             <div class="text-right" style="">
@@ -142,7 +144,12 @@
         </div>
     </div>
 </div>
-<style></style>
-
-
-
+@else
+<script>
+    alert('Bạn không đủ quyền hạn truy cập trang này');
+        function goBack() {
+  window.history.back();
+}
+goBack();
+</script>
+@endif

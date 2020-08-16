@@ -19,6 +19,7 @@ class CreateKhuyenmaisTable extends Migration
             $table->integer('phantramKM');
             $table->date('tungay');
             $table->date('denngay');
+            $table->string('imageURL')->default('images/mons/default.jpg');
             $table->timestamps();
             $table->softDeletes();
         });

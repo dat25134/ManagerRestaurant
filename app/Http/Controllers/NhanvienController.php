@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ban;
 use App\Http\Repositories\UserRepositoryInterface;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
@@ -19,7 +20,12 @@ class NhanvienController extends Controller
 
     public function index()
     {
-        return view('dashboard.index');
+        $bans = $this->userRepository->getBans();
+        $users = $this->userRepository->all();
+        $billMonth = $this->userRepository->getBillMonth();
+        $billDay = $this->userRepository->getBillDay();
+
+        return view('dashboard.index', compact('bans','users','billMonth','billDay'));
     }
 
     public function quanlyNV(){

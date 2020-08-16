@@ -3,7 +3,7 @@
 #head-title{
 
     font-size: 35px;
-    color: rgba(124, 78, 58, 0.8)
+    color: rgba(124, 78, 58)
 }
 .title{
     font-family: "Sofia", serif;
@@ -22,6 +22,28 @@
 }
 
 .form-combo{
-    height: 500px;
+    min-height: 500px;
     margin: 0 0.5rem;
+}
+
+.logosale{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.shadow{
+    position: relative;
+}
+
+.btn-combo{
+    position: absolute;
+    bottom: 0.5rem;
+    text-align: center;
+    padding: 0;
+}
+.sale{
+    position: inherit;
+    top: 32px;
+    right: 23px;
+    text-shadow: black 1px 2px 8px;
 }

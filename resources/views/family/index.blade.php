@@ -56,15 +56,23 @@
                 <div class="card mb-3 border border-secondary" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="{{asset('images/download.jpg')}}" class="card-img" alt="anh">
+                            <img src="{{asset($item->imageURL)}}" class="card-img" alt="anh" style="height:164px;">
                         </div>
                         <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{$item->nhommons}}</h5>
-                                <p class="card-text">{{$item->tenmon}}</p>
-                                <p class="card-text"><small
-                                        class="text-danger">{{number_format($item->gia) . " VNĐ"}}</small></p>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{$item->tenmon}}</h5>
+                                        <p class="card-text">{{$item->nhommons}}</p>
+                                        <p class="card-text"><small
+                                                class="text-danger">{{number_format($item->gia) . " VNĐ"}}</small></p>
+                                    </div>
+                                </div>
+                                <div class="col-4" style="margin:auto;">
+                                    <button class="btn btn-danger rounded-pill rounded"> Gọi món </button>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -80,8 +88,8 @@
 </div>
 
 {{-- chương trình khuyến mãi --}}
-<div class="container-fluid" style="background-color: #372726;padding-left:20rem">
-    <div class="d-flex flex-row">
+<div class="container-fluid" style="background-color: #372726;">
+    <div class="d-flex flex-row justify-content-center">
         <div class="p-2 bd-highlight" style="position:relative">
             <img src="{{asset('images/percent-off.png')}}" alt="sale">
             <span style="position: absolute;left: 35px;top: 65px;font-size: 229%;color: #372726;">SALE %</span>
@@ -105,138 +113,158 @@
                 @foreach ($item as $key=>$val)
                 @switch($key)
                 @case(0)
-                <div class="col-3 form-combo border shadow" style="background-color: #68d0af">
+                <div class="col-3 form-combo border shadow rounded-lg" style="background-color: #68d0af">
                     @break
                     @case(1)
-                    <div class="col-3 form-combo border shadow" style="background-color: #d2d86f">
+                    <div class="col-3 form-combo border shadow rounded-lg" style="background-color: #d2d86f">
                         @break
                         @default
-                        <div class="col-3 form-combo border shadow" style="background-color: #83bed7">
+                        <div class="col-3 form-combo border shadow rounded-lg" style="background-color: #83bed7">
                             @endswitch
-                            <img src="..." class="card-img-top" alt="...">
+                            <img src="{{asset($val['imageURL'])}}" class="card-img-top" alt="anh=combo" style="height: 180px">
                             <h5 class="">{{$val['tenKM']}}</h5>
-                            <p class="">{{$val['ngaybd']}}</p>
-                            <p class="">{{$val['ngaykt']}}</p>
+                            <p class="">Từ ngày: {{date('d-m-Y',strtotime($val['ngaybd']))}}</p>
+                            <p class="">Đến ngày: {{date('d-m-Y',strtotime($val['ngaykt']))}}</p>
                             <ul class="">
-                                @for ($i = 0; $i < count($val['mons']['tenmon']); $i++)
-                                <li class="">
-                                    {{$val['mons']['tenmon'][$i].':'.$val['mons']['nhommon'][$i]}}</li>
+                                @for ($i = 0; $i < count($val['mons']['tenmon']); $i++) <li class="">
+                                    {{$val['mons']['tenmon'][$i].' : '.$val['mons']['nhommon'][$i]}}</li>
                                     <hr>
-                                @endfor
+                                    @endfor
                             </ul>
+                            <div class="logosale">
+                                <span class="text-white sale"
+                                    style="font-weight: bold">{{'GIẢM '.$val['phantramKM'] . "%"}}</span>
+                                <img src="{{asset('images/saleoff.png')}}" alt="saleoff" style="width: 120px;">
+                            </div>
+                            <div class="col-12 btn-combo">
+                                <button class="btn btn-danger"> Gọi combo </button>
+                            </div>
                         </div>
                         @endforeach
                     </div>
-
                 </div>
                 @else
                 <div class="carousel-item">
                     <div class="row row-cols-3 justify-content-center">
                         @foreach ($item as $key=>$val)
                         @switch($key)
-                        @case(1)
-                        <div class="col-3 form-combo border shadow" style="background-color: #d2d86f">{{$val['tenKM']}}
+                        @case(0)
+                        <div class="col-3 form-combo border shadow rounded-lg" style="background-color: #68d0af">
                             @break
-                            @case(2)
-                            <div class="col-3 form-combo border shadow" style="background-color: #d2d86f">
-                                {{$val['tenKM']}}
+                            @case(1)
+                            <div class="col-3 form-combo border shadow rounded-lg" style="background-color: #d2d86f">
+                                @break
+                                @default
+                                <div class="col-3 form-combo border shadow rounded-lg" style="background-color: #83bed7">
+                                    @endswitch
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <h5 class="">{{$val['tenKM']}}</h5>
+                                    <p class="">Từ ngày: {{date('d-m-Y',strtotime($val['ngaybd']))}}</p>
+                                    <p class="">Đến ngày: {{date('d-m-Y',strtotime($val['ngaykt']))}}</p>
+                                    <ul class="">
+                                        @for ($i = 0; $i < count($val['mons']['tenmon']); $i++) <li class="">
+                                            {{$val['mons']['tenmon'][$i].' : '.$val['mons']['nhommon'][$i]}}</li>
+                                            <hr>
+                                            @endfor
+                                    </ul>
+                                    <div class="logosale">
+                                        <span class="text-white sale"
+                                            style="font-weight: bold">{{'GIẢM '.$val['phantramKM'] . "%"}}</span>
+                                        <img src="{{asset('images/saleoff.png')}}" alt="saleoff" style="width: 120px;">
+                                    </div>
+                                    <div class="col-12 btn-combo">
+                                        <button class="btn btn-danger"> Gọi combo </button>
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
-                            @break
-                            @default
-                            <div class="col-3 form-combo border shadow" style="background-color: #83bed7">
-                                {{$val['tenKM']}}
+                        </div>
+                @endif
+                @endforeach
+            </div>
+            <a class="carousel-control-prev text-danger" style="font-size:50px" href="#carouselExampleControls"
+                role="button" data-slide="prev">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <a class="carousel-control-next text-danger" href="#carouselExampleControls" role="button" data-slide="next"
+                style="font-size:50px">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{{-- feedback --}}
+<div class="container-fluid pt-2 pb-2"
+    style="background: url({{asset('images/bg-fb.jpg')}}) center no-repeat;background-size: cover;">
+    <div class="logo text-center">
+        <img src="{{asset('images/logo.png')}}" alt="logo" class="rounded-pill" style="width:200px">
+    </div>
+    <h1 class="animate text-center mt-4 container" id="head-title"> ---- FEED BACK ---- </h1>
+    <h1 class="text-center">Khách hàng</h1>
+    <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="{{asset('images/kh1.jpg')}}" alt="" class="rounded-circle"
+                                    style="width:150px;height:150px">
                             </div>
-                            @endswitch
-                            @endforeach
+                            <div class="col-8"
+                                style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                <h2>Lê Thạnh</h2>
+                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                            </div>
                         </div>
                     </div>
-                    @endif
-                    @endforeach
-                </div>
-                <a class="carousel-control-prev text-danger" style="font-size:50px" href="#carouselExampleControls"
-                    role="button" data-slide="prev">
-                    <i class="fas fa-chevron-left"></i>
-                </a>
-                <a class="carousel-control-next text-danger" href="#carouselExampleControls" role="button"
-                    data-slide="next" style="font-size:50px">
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </div>
-
-            {{-- feedback --}}
-            <div class="container-fluid pt-2 pb-2"
-                style="background: url(images/bg-fb.jpg) center no-repeat;background-size: cover;">
-                <div class="logo text-center">
-                    <img src="{{asset('images/logo.png')}}" alt="logo" class="rounded-pill" style="width:200px">
-                </div>
-
-                <h1 class="animate text-center mt-4 container" id="head-title"> ---- FEED BACK ---- </h1>
-
-                <h1 class="text-center">Khách hàng</h1>
-                <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <img src="{{asset('images/kh1.jpg')}}" alt="" class="rounded-circle"
-                                                style="width:150px;height:150px">
-                                        </div>
-                                        <div class="col-8"
-                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                            <h2>Lê Thạnh</h2>
-                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle"
-                                                style="width:150px;height:150px">
-                                        </div>
-                                        <div class="col-8"
-                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                            <h2>Đức Phạm</h2>
-                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle"
+                                    style="width:150px;height:150px">
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle"
-                                                style="width:150px;height:150px">
-                                        </div>
-                                        <div class="col-8"
-                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                            <h2>Lê Thạnh</h2>
-                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <img src="{{asset('images/kh3.jpg')}}" alt="" class="rounded-circle"
-                                                style="width:150px;height:150px">
-                                        </div>
-                                        <div class="col-8"
-                                            style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
-                                            <h2>Đức Phạm</h2>
-                                            <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-8"
+                                style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                <h2>Đức Phạm</h2>
+                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @include('layouts.footer')
-            @endsection
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="{{asset('images/kh2.jpg')}}" alt="" class="rounded-circle"
+                                    style="width:150px;height:150px">
+                            </div>
+                            <div class="col-8"
+                                style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                <h2>Lê Thạnh</h2>
+                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="{{asset('images/kh3.jpg')}}" alt="" class="rounded-circle"
+                                    style="width:150px;height:150px">
+                            </div>
+                            <div class="col-8"
+                                style="color: #664d42;font-family: 'Dancing Script', cursive; font-size:130%">
+                                <h2>Đức Phạm</h2>
+                                <p>Quán phục vụ nhiệt tình, nhân viên vui vẻ, giá cả hợp lý</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@include('layouts.footer')
+@endsection

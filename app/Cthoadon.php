@@ -11,10 +11,10 @@ class Cthoadon extends Model
     protected $dates = ['deleted_at'];
 
     public function hoadon(){
-        return $this->belongsTo(Hoadon::class,'id_hoadons');
+        return $this->belongsTo(Hoadon::class,'id_hoadons','id');
     }
 
     public function mon(){
-        return $this->belongsTo(Mon::class,'id_mons');
+        return $this->belongsTo(Mon::class,'id_mons','id');
     }
 }

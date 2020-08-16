@@ -8,4 +8,8 @@ interface UserRepositoryInterface{
     public function getNV($id);
     public function editNV($request);
     public function delNV($id);
+
+    public function getBans();
+    public function getBillMonth();
+    public function getBillDay();
 }

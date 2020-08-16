@@ -71,33 +71,26 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="{{route('dashboard.bill')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Thống kê hóa đơn</span></a>
     </li>
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Thống kê doanh thu</span></a>
-    </li>
-
-    <!-- Nav Item - Charts -->
+    {{-- <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    {{-- <hr class="sidebar-divider d-none d-md-block"> --}}
 
-    <!-- Nav Item - Tables -->
+    {{-- <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Sao lưu, khôi phục dữ liệu</span></a>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

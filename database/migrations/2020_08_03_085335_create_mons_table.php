@@ -17,6 +17,7 @@ class CreateMonsTable extends Migration
             $table->id();
             $table->string('tenmon');
             $table->string('tentienganh')->nullable();
+            $table->string('imageURL')->default('images/mons/default.jpg');
             $table->double('gia');
             $table->string('nhommons');
             $table->string('donvitinhs');

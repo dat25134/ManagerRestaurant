@@ -16,8 +16,7 @@ class CreateCthoadonsTable extends Migration
         Schema::create('cthoadons', function (Blueprint $table) {
             $table->id();
             $table->integer('soluong');
-            $table->float('dongia');
-            $table->integer('khuyenmai');
+            $table->integer('khuyenmai')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('id_hoadons');

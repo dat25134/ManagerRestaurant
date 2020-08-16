@@ -18,16 +18,12 @@ class Hoadon extends Model
         return $this->belongsTo(Vat::class,'id_vats');
     }
 
-    public function giamgia(){
-        return $this->belongsTo(Vat::class,'id_giamgias');
-    }
-
     public function user(){
         return $this->belongsTo(User::class,'id_users');
     }
 
     public function cthoadons(){
-        return $this->hasMany(Cthoadon::class);
+        return $this->hasMany(Cthoadon::class,'id_hoadons','id');
     }
 
 }

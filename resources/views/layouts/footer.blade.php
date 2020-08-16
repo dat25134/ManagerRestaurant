@@ -1,4 +1,4 @@
-<div class="container-fluid text-center mt-2 pt-5 pb-2" style="background: url(images/footer-bgs.jpg) center no-repeat;
+<div class="container-fluid text-center mt-2 pt-5 pb-2" style="background: url({{asset('images/footer-bgs.jpg')}}) center no-repeat;
 background-size: cover;">
     <h2 style="font-size: 35px; color: #664d42; font-weight:20">GHÉ THĂM NHÀ HÀNG</h2>
     <h2 style="font-family: 'Sofia', serif; font-size: 60px; font-weight:1">ngày hôm nay</h2>

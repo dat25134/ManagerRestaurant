@@ -1,3 +1,5 @@
+@if (Auth::user()->role==1)
+
 @extends('layouts.formDashboard')
 @section('title','Dashboard')
 
@@ -41,6 +43,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 <script src="{{asset('js/khuyenmai.js')}}"></script>
+<script src="{{asset('js/snipping.js')}}"></script>
 <!-- Default dropleft button -->
 
 @endsection
@@ -67,8 +70,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon0" style="width:150px">Tên CTKM</span>
                                 </div>
-                                <input type="text" class="form-control" name="name" id="name"
-                                    data-rule-required="true" data-msg-required="Tên không được để trống">
+                                <input type="text" class="form-control" name="name" id="name" data-rule-required="true"
+                                    data-msg-required="Tên không được để trống">
                             </div>
                             <div class="text-right" style="">
                                 <label id="name-error" class="error" for="name"></label>
@@ -89,9 +92,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1" style="width:150px">Từ ngày</span>
                                 </div>
-                                <input type="date" class="form-control"
-                                    aria-label="email" aria-describedby="basic-addon1" name="tungay" id="tungay"
-                                    data-rule-required="true"
+                                <input type="date" class="form-control" aria-label="email"
+                                    aria-describedby="basic-addon1" name="tungay" id="tungay" data-rule-required="true"
                                     data-msg-required="Ngày bắt đầu không được để trống">
                             </div>
                             <div class="text-right" style="">
@@ -103,9 +105,8 @@
                                     <span class="input-group-text" id="basic-addon2" style="width:150px">Đến ngày</span>
                                 </div>
                                 <input type="date" class="form-control" aria-label="denngay"
-                                    aria-describedby="basic-addon2" name="denngay"
-                                    id="denngay" data-rule-required="true"
-                                    data-msg-required="Ngày hết hạn không được để trống">
+                                    aria-describedby="basic-addon2" name="denngay" id="denngay"
+                                    data-rule-required="true" data-msg-required="Ngày hết hạn không được để trống">
                             </div>
                             <div class="text-right" style="">
                                 <label id="denngay-error" class="error" for="denngay"></label>
@@ -127,7 +128,12 @@
         </div>
     </div>
 </div>
-<style></style>
-
-
-
+@else
+<script>
+    alert('Bạn không đủ quyền hạn truy cập trang này');
+        function goBack() {
+  window.history.back();
+}
+goBack();
+</script>
+@endif

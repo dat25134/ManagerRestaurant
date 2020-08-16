@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Repositories;
 
+use App\Ban;
+use App\Hoadon;
 use App\User;
 
 class UserRepository implements UserRepositoryInterface
@@ -31,5 +33,38 @@ class UserRepository implements UserRepositoryInterface
         $user = User::find($id);
         $user->delete();
         return $user;
+    }
+
+    public function getBans(){
+        $bans = Ban::all();
+        $bans = count($bans);
+
+        return $bans;
+    }
+
+    public function getBillMonth(){
+        $month = date('m-Y');
+        $bills = Hoadon::withTrashed()->get();
+        $sum=0;
+        foreach ($bills as $val){
+            if($month == date("m-Y",strtotime($val->ngay_gio_lap))){
+                $sum+=$val->total;
+            }
+        }
+
+        return $sum;
+    }
+
+    public function getBillDay(){
+        $day = date('d-m-Y');
+        $bills = Hoadon::withTrashed()->get();
+        $sum=0;
+        foreach ($bills as $val){
+            if($day == date("d-m-Y",strtotime($val->ngay_gio_lap))){
+                $sum+=$val->total;
+            }
+        }
+
+        return $sum;
     }
 }

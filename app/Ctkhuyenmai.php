@@ -11,7 +11,7 @@ class Ctkhuyenmai extends Model
     // protected $dates = ['deleted_at'];
 
     public function khuyenmai(){
-        return $this->belongsTo(Khuyenmai::class,'id_khuyenmais');
+        return $this->belongsTo(Khuyenmai::class,'id_khuyenmais','id');
     }
 
     public function mon(){

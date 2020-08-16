@@ -75,13 +75,21 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::delete('/delCupon/{id}', 'CuponController@delCupon')->name('dashboard.delCupon');
     });
 
+    Route::group(['prefix' => 'bills'], function () {
+        Route::get('/', 'BillController@index')->name('dashboard.bill');
+        Route::get('/billsAPI', 'BillController@billsAPI')->name('dashboard.billsAPI');
+        Route::get('/getBillsAPI/{id}', 'BillController@getBillsAPI')->name('dashboard.getBillsAPI');
+        Route::get('/getBillDay', 'BillController@getBillDay')->name('dashboard.getBillDay');
+    });
+
 });
 
 Route::group(['prefix' => 'family'], function () {
-    Route::get('/', 'FamilyController@index')->name('dashboard.FamilyIndex');
-    // Route::get('/cuponAPI', 'CuponController@cuponAPI')->name('dashboard.cuponAPI');
-    // Route::post('/create', 'CuponController@createCupon')->name('dashboard.createCupon');
-    // Route::get('/cuponAPI/{id}', 'CuponController@getCuponAPI')->name('dashboard.getCuponAPI');
-    // Route::put('/editCupon/{id}', 'CuponController@editCupon')->name('dashboard.editCupon');
-    // Route::delete('/delCupon/{id}', 'CuponController@delCupon')->name('dashboard.delCupon');
+    Route::get('/', 'FamilyController@index')->name('Family.index');
+    Route::get('/order', 'FamilyController@order')->name('Family.order');
+    Route::get('/hoaDonAPI/{id_bans}', 'FamilyController@hoaDonAPI')->name('Family.hoaDonAPI');
+    Route::delete('/delCTHD/{id}', 'FamilyController@delCTHD')->name('Family.delCTHD');
+    Route::put('/updateCTHD/{id}', 'FamilyController@updateCTHD')->name('Family.updateCTHD');
+    Route::post('/addCTHD', 'FamilyController@addCTHD')->name('Family.addCTHD');
+    Route::delete('/pay/{id}', 'FamilyController@thanhtoan')->name('Family.thanhtoan');
 });

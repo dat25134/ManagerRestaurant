@@ -23,11 +23,11 @@ class Mon extends Model
     }
 
     public function cthoadons(){
-        return $this->hasMany(Cthoadon::class);
+        return $this->hasMany(Cthoadon::class,'id_mons','id');
     }
 
     public function ctkhuyenmais(){
-        return $this->hasMany(Ctkhuyenmai::class);
+        return $this->hasMany(Ctkhuyenmai::class,'id_mons','id');
     }
 
     // public function menu(){

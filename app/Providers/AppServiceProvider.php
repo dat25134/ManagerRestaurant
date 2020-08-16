@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Repositories\BillRepository;
+use App\Http\Repositories\BillRepositoryInterface;
 use App\Http\Repositories\CTKMRepository;
 use App\Http\Repositories\CTKMRepositoryInterface;
 use App\Http\Repositories\CuponRepository;
@@ -31,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(CTKMRepositoryInterface::class, CTKMRepository::class);
         $this->app->singleton(CuponRepositoryInterface::class, CuponRepository::class);
         $this->app->singleton(FamilyRepositoryInterface::class, FamilyRepository::class);
+        $this->app->singleton(BillRepositoryInterface::class, BillRepository::class);
     }
 
     /**

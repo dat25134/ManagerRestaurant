@@ -1,3 +1,5 @@
+@if (Auth::user()->role==1)
+
 @extends('layouts.formDashboard')
 @section('title','Dashboard')
 
@@ -40,6 +42,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 <script src="{{asset('js/cupon.js')}}"></script>
+<script src="{{asset('js/snipping.js')}}"></script>
 <!-- Default dropleft button -->
 
 @endsection
@@ -102,7 +105,12 @@
         </div>
     </div>
 </div>
-<style></style>
-
-
-
+@else
+<script>
+    alert('Bạn không đủ quyền hạn truy cập trang này');
+        function goBack() {
+  window.history.back();
+}
+goBack();
+</script>
+@endif

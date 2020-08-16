@@ -15,11 +15,10 @@ class CreateHoadonsTable extends Migration
     {
         Schema::create('hoadons', function (Blueprint $table) {
             $table->id();
-            $table->date('ngaylap');
-            $table->time('giovao');
-            $table->time('giothanhtoan');
-            $table->integer('ca');
-            $table->integer('vats');
+            $table->dateTime('ngay_gio_lap')->useCurrent();
+            $table->time('giothanhtoan')->nullable();
+            $table->integer('vats')->default(10);
+            $table->double('total')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('id_bans');
             $table->unsignedBigInteger('id_users');

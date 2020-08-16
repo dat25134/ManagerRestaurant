@@ -2,13 +2,15 @@
 <nav class="nav">
     <div class="container-fluid shadow">
         <div class="logo">
-            <a href="#">
+        <a href="{{route('Family.index')}}">
                 <img src="{{asset('images/logo.png')}}" alt="logo" class="rounded-pill" style="width:100px">
             </a>
         </div>
         <div id="mainListDiv" class="main_list">
             <ul class="navlinks ">
                 <li class="nav-item justify-content-center"><a href="#">About</a></li>
+                @if (Auth::user())
+                <li class="nav-item justify-content-center"><a href="{{route('Family.order')}}">Order</a></li>
                 <li class="nav-item dropdown no-arrow justify-content-center">
                     <a class="dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,24 +22,18 @@
                             @endif
                         </span>
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
-                        <img class="img-profile rounded-circle" style="width:50px"
+                        <img class="img-profile rounded-circle" style="width:50px;height:50px"
                             src="{{Auth::user()->image64}}">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown" style="background-color: darkgray !important;">
-                        <a class="dropdown-item fontsizes1" href="#">
+
+                         <a class="dropdown-item fontsizes1" href="{{route('dashboard.index')}}">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Profile
+                            Dashboard
                         </a>
-                        <a class="dropdown-item fontsizes1" href="#">
-                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item fontsizes1" href="#">
-                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Activity Log
-                        </a>
+
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item fontsizes1" href="#" data-toggle="modal" data-target="#logoutModal">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -46,6 +42,9 @@
 
                     </div>
                 </li>
+                @else
+                <li class="nav-item justify-content-center"><a href="/login">Đăng nhập</a></li>
+                @endif
             </ul>
         </div>
         <span class="navTrigger">

@@ -1,3 +1,5 @@
+@if (Auth::user()->role==1)
+
 @extends('layouts.formDashboard')
 @section('title','Dashboard')
 
@@ -142,3 +144,13 @@
         </div>
     </div>
 </div>
+
+@else
+<script>
+    alert('Bạn không đủ quyền hạn truy cập trang này');
+        function goBack() {
+  window.history.back();
+}
+goBack();
+</script>
+@endif
