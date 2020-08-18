@@ -16,6 +16,7 @@ use App\Http\Repositories\MonRepository;
 use App\Http\Repositories\MonRepositoryInterface;
 use App\Http\Repositories\UserRepositoryInterface;
 use App\Http\Repositories\UserRepository;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -43,6 +44,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        URL::forceScheme('https');
     }
 }
