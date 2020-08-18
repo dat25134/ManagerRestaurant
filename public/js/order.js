@@ -4,7 +4,7 @@ orders.showBill = function(){
     id_bans = $('#id_ban').val();
     let tong = 0;
     $.ajax({
-        url:`https://family-nhahanggiadinh.herokuapp.com/family/hoaDonAPI/${id_bans}`,
+        url:`http://family-nhahanggiadinh.herokuapp.com/family/hoaDonAPI/${id_bans}`,
         method : "get",
         dataType : "json",
         success: function(data){
@@ -59,7 +59,7 @@ orders.del = function(id){
         }
     });
     $.ajax({
-        url:`https://family-nhahanggiadinh.herokuapp.com/family/delCTHD/${id}`,
+        url:`http://family-nhahanggiadinh.herokuapp.com/family/delCTHD/${id}`,
         method : "delete",
         dataType : "json",
         success: function(data){
@@ -81,7 +81,7 @@ orders.addCTHD = function(id_mon){
         }
     });
     $.ajax({
-        url:`https://family-nhahanggiadinh.herokuapp.com/family/addCTHD`,
+        url:`http://family-nhahanggiadinh.herokuapp.com/family/addCTHD`,
         method : "post",
         dataType : "json",
         data: {
@@ -150,7 +150,7 @@ orders.thanhtoan = function(total,id_hoadons){
         }
     });
     $.ajax({
-        url:`https://family-nhahanggiadinh.herokuapp.com/family/pay/${id_hoadons}`,
+        url:`http://family-nhahanggiadinh.herokuapp.com/family/pay/${id_hoadons}`,
         method : "delete",
         dataType : "json",
         data: {total:total},
@@ -172,7 +172,7 @@ orders.updateSL = function(id,ele){
         }
     });
     $.ajax({
-        url:`https://family-nhahanggiadinh.herokuapp.com/family/updateCTHD/${id}`,
+        url:`http://family-nhahanggiadinh.herokuapp.com/family/updateCTHD/${id}`,
         method : "put",
         dataType : "json",
         data : {soluong},

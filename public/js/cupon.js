@@ -2,7 +2,7 @@ var cupon = cupon || {};
 
 cupon.showCTKM = function(){
     $.ajax({
-        url : 'https://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/ctkmsAPI',
+        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/ctkmsAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -18,7 +18,7 @@ cupon.showCTKM = function(){
 
 cupon.showMon = function(){
     $.ajax({
-        url : 'https://family-nhahanggiadinh.herokuapp.com/dashboard/mons/monsAPI',
+        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/mons/monsAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -34,7 +34,7 @@ cupon.showMon = function(){
 
 cupon.show = function(){
     $.ajax({
-        url : 'https://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/cuponAPI',
+        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/cuponAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -84,7 +84,7 @@ cupon.closeModal = function(){
 
 cupon.infoModal = function(id){
     $.ajax({
-        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/cuponAPI/${id}`,
+        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/cuponAPI/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
@@ -123,7 +123,7 @@ cupon.create =function(){
             }
         });
          $.ajax({
-            url:"https://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/create",
+            url:"http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/create",
             method: 'POST',
             data:data,
             success : function(){
@@ -180,7 +180,7 @@ cupon.edit = function(){
         }
     });
     $.ajax({
-        url:`https://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/editCupon/${id}`,
+        url:`http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/editCupon/${id}`,
         method:'put',
         dataType:'json',
         data: {
@@ -215,7 +215,7 @@ cupon.del = function(id){
         }
     });
     $.ajax({
-        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/delCupon/${id}`,
+        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/delCupon/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(data){
