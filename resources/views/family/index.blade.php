@@ -68,9 +68,9 @@
                                                 class="text-danger">{{number_format($item->gia) . " VNĐ"}}</small></p>
                                     </div>
                                 </div>
-                                <div class="col-4" style="margin:auto;">
+                                {{-- <div class="col-4" style="margin:auto;">
                                     <button class="btn btn-danger rounded-pill rounded"> Gọi món </button>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -136,9 +136,9 @@
                                     style="font-weight: bold">{{'GIẢM '.$val['phantramKM'] . "%"}}</span>
                                 <img src="{{asset('images/saleoff.png')}}" alt="saleoff" style="width: 120px;">
                             </div>
-                            <div class="col-12 btn-combo">
+                            {{-- <div class="col-12 btn-combo">
                                 <button class="btn btn-danger"> Gọi combo </button>
-                            </div>
+                            </div> --}}
                         </div>
                         @endforeach
                     </div>

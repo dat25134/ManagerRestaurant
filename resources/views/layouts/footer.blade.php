@@ -17,6 +17,7 @@ background-size: cover;">
               <a class="nav-link nav-bottom" href="#">Liên hệ</a>
             </li>
           </ul>
+        <span style="font-weight: bold">Địa chỉ : 28, Nguyễn Tri Phương, TP.Huế</span>
     </div>
 </div>
 <div class="container-fluid text-center" style="background-color: #ebebeb">
