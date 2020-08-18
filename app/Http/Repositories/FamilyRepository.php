@@ -20,7 +20,7 @@ class FamilyRepository implements FamilyRepositoryInterface
 
     public function getMon()
     {
-        $mons = Mon::all()->random(8);
+        $mons = Mon::all();
 
         return $mons;
     }
