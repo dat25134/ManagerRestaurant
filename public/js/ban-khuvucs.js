@@ -3,7 +3,7 @@ var khuvuc_ban = khuvuc_ban || {};
 
 khuvuc_ban.get = function(){
     $.ajax({
-        url: 'http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/bans',
+        url: 'https://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/bans',
         method: 'get',
         data: 'json',
         success: function(data){
@@ -20,7 +20,7 @@ khuvuc_ban.get = function(){
 
 khuvuc_ban.show = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/bans',
+        url : 'https://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/bans',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -137,7 +137,7 @@ khuvuc_ban.create =function(){
                     }
                 });
         $.ajax({
-            url:"http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/createKV",
+            url:"https://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/createKV",
             method: 'POST',
             data:data,
             success : function(){
@@ -167,7 +167,7 @@ khuvuc_ban.infoModal = function(id){
     $('#note-error').empty();
     $('#error').empty();
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/getKV/${id}`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/getKV/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
@@ -186,7 +186,7 @@ khuvuc_ban.edit = function(){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/editKV/${id}`,
+        url:`https://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/editKV/${id}`,
         method:'put',
         dataType:'json',
         data: {
@@ -233,7 +233,7 @@ khuvuc_ban.del = function(id){
         }
     });
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/delKV/${id}`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/delKV/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(user){

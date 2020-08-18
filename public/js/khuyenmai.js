@@ -2,7 +2,7 @@ var ctkms = ctkms || {};
 
 ctkms.show = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/ctkmsAPI',
+        url : 'https://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/ctkmsAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -48,7 +48,7 @@ ctkms.openModal = function(element){
 
 ctkms.infoModal = function(id){
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/ctkmAPI/${id}`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/ctkmAPI/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
@@ -102,7 +102,7 @@ ctkms.create =function(){
            }
        });
         $.ajax({
-           url:"http://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/create",
+           url:"https://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/create",
            method: 'POST',
            data:data,
            success : function(){
@@ -140,7 +140,7 @@ ctkms.edit = function(){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/editCTKM/${id}`,
+        url:`https://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/editCTKM/${id}`,
         method:'put',
         dataType:'json',
         data: {
@@ -189,7 +189,7 @@ ctkms.del = function(id){
         }
     });
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/delCTKM/${id}`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/delCTKM/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(data){

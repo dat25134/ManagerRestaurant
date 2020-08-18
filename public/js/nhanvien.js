@@ -16,7 +16,7 @@ var nhanvien = nhanvien || {};
 // }
 nhanvien.show = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien',
+        url : 'https://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -76,7 +76,7 @@ nhanvien.closeModal = function(){
 
 nhanvien.resetModal = function(){
     $('#reg-form').trigger("reset");
-    $('#Avatar').attr('src','http://family-nhahanggiadinh.herokuapp.com/images/no-avatar.png')
+    $('#Avatar').attr('src','https://family-nhahanggiadinh.herokuapp.com/images/no-avatar.png')
 }
 
 nhanvien.toastrNoti = function(type,string){
@@ -110,7 +110,7 @@ nhanvien.create =function(){
         data.password_confirmation= $('#password-confirm').val();
         data.image64 = $('#Avatar').attr('src');
          $.ajax({
-            url:"http://family-nhahanggiadinh.herokuapp.com/register",
+            url:"https://family-nhahanggiadinh.herokuapp.com/register",
             method: 'POST',
             data:data,
             success : function(){
@@ -138,7 +138,7 @@ nhanvien.create =function(){
 
 nhanvien.infoModal = function(id){
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien/${id}`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
@@ -161,7 +161,7 @@ nhanvien.edit = function(){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien/${id}`,
+        url:`https://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien/${id}`,
         method:'put',
         dataType:'json',
         data: {
@@ -204,7 +204,7 @@ nhanvien.confirm =function(id){
 
 nhanvien.del = function(id){
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien/${id}/del`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/apiNhanvien/${id}/del`,
         method: 'get',
         dataType: 'json',
         success: function(user){

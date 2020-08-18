@@ -2,7 +2,7 @@ var mons = mons || {};
 
 mons.show = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/mons/monsAPI',
+        url : 'https://family-nhahanggiadinh.herokuapp.com/dashboard/mons/monsAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -54,7 +54,7 @@ mons.closeModal = function(){
 
 mons.infoModal = function(id){
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/mons/monAPI/${id}`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/mons/monAPI/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
@@ -98,7 +98,7 @@ mons.create =function(){
             }
         });
          $.ajax({
-            url:"http://family-nhahanggiadinh.herokuapp.com/dashboard/mons/create",
+            url:"https://family-nhahanggiadinh.herokuapp.com/dashboard/mons/create",
             method: 'POST',
             data:data,
             success : function(){
@@ -158,7 +158,7 @@ mons.edit = function(){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/dashboard/mons/editMon/${id}`,
+        url:`https://family-nhahanggiadinh.herokuapp.com/dashboard/mons/editMon/${id}`,
         method:'put',
         dataType:'json',
         data: {
@@ -196,7 +196,7 @@ mons.del = function(id){
         }
     });
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/mons/delMon/${id}`,
+        url: `https://family-nhahanggiadinh.herokuapp.com/dashboard/mons/delMon/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(data){
