@@ -30,20 +30,20 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::put('/apiNhanvien/{id}', 'NhanvienController@APIupdateID')->name('dashboard.updateNVID');
     Route::get('/apiNhanvien/{id}/del', 'NhanvienController@APIdelID')->name('dashboard.delNVID');
     Route::group(['prefix' => 'ban_an'], function () {
-        Route::get('/', 'bansController@bans')->name('dashboard.bans');
-        Route::get('/bans', 'bansController@APIKVbans')->name('dashboard.APIbans');
-        Route::post('/createKV', 'bansController@createKVbans')->name('dashboard.createKVbans');
-        Route::get('/getKV/{id}', 'bansController@APIgetKVbans')->name('dashboard.APIgetKVbans');
-        Route::put('/editKV/{id}', 'bansController@editKVbans')->name('dashboard.editKVbans');
-        Route::delete('/delKV/{id}', 'bansController@delKVbans')->name('dashboard.delKVbans');
+        Route::get('/', 'BansController@bans')->name('dashboard.bans');
+        Route::get('/bans', 'BansController@APIKVbans')->name('dashboard.APIbans');
+        Route::post('/createKV', 'BansController@createKVbans')->name('dashboard.createKVbans');
+        Route::get('/getKV/{id}', 'BansController@APIgetKVbans')->name('dashboard.APIgetKVbans');
+        Route::put('/editKV/{id}', 'BansController@editKVbans')->name('dashboard.editKVbans');
+        Route::delete('/delKV/{id}', 'BansController@delKVbans')->name('dashboard.delKVbans');
 
         // bans
-        Route::get('/bans/{idKV}', 'bansController@APIbans')->name('dashboard.APIbans');
-        Route::get('/showBans', 'bansController@APIbansAll')->name('dashboard.APIbansAll');
-        Route::post('/createBan', 'bansController@createBans')->name('dashboard.createKVbans');
-        Route::get('/getBan/{id}', 'bansController@APIgetBans')->name('dashboard.APIgetBans');
-        Route::put('/editBan/{id}', 'bansController@editBans')->name('dashboard.editBans');
-        Route::delete('/delBan/{id}', 'bansController@delBans')->name('dashboard.delBans');
+        Route::get('/bans/{idKV}', 'BansController@APIbans')->name('dashboard.APIbans');
+        Route::get('/showBans', 'BansController@APIbansAll')->name('dashboard.APIbansAll');
+        Route::post('/createBan', 'BansController@createBans')->name('dashboard.createKVbans');
+        Route::get('/getBan/{id}', 'BansController@APIgetBans')->name('dashboard.APIgetBans');
+        Route::put('/editBan/{id}', 'BansController@editBans')->name('dashboard.editBans');
+        Route::delete('/delBan/{id}', 'BansController@delBans')->name('dashboard.delBans');
     });
 
     Route::group(['prefix' => 'mons'], function () {
