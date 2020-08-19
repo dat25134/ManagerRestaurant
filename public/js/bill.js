@@ -17,7 +17,7 @@ bills.showpublic =function(data){
 }
 bills.show = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/bills/billsAPI',
+        url : location.origin+'/dashboard/bills/billsAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -32,7 +32,7 @@ bills.show = function(){
 bills.showDate = function(element){
     day = $(element).val();
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/bills/getBillDay',
+        url : location.origin+'/dashboard/bills/getBillDay',
         method : "get",
         dataType : "json",
         data: {day:day},
@@ -49,7 +49,7 @@ bills.chitiet = function(id){
     $('#listBill').hide();
     $('#chiTietBill').show();
     $.ajax({
-        url : `http://family-nhahanggiadinh.herokuapp.com/dashboard/bills/getBillsAPI/${id}`,
+        url : location.origin+`/dashboard/bills/getBillsAPI/${id}`,
         method : "get",
         dataType : "json",
         success : function(data){

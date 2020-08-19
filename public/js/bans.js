@@ -13,7 +13,7 @@ function showAll_bans(){
     $('#myTableBans').show();
     $('#myTable').DataTable().destroy();
     $.ajax({
-        url : `http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/showBans`,
+        url : location.origin+`/dashboard/ban_an/showBans`,
         method : "get",
         dataType : "json",
         success : function(data){
@@ -50,7 +50,7 @@ bans.delAll = function(id){
         }
     });
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/delBan/${id}`,
+        url: location.origin+`/dashboard/ban_an/delBan/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(data){
@@ -67,7 +67,7 @@ bans.delAll = function(id){
 
 bans.show = function(idKV){
     $.ajax({
-        url : `http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/bans/${idKV}`,
+        url : location.origin+`/dashboard/ban_an/bans/${idKV}`,
         method : "get",
         dataType : "json",
         success : function(data){
@@ -114,7 +114,7 @@ bans.create =function(){
                     }
                 });
         $.ajax({
-            url:"http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/createBan",
+            url:location.origin+"/dashboard/ban_an/createBan",
             method: 'POST',
             data:data,
             success : function(){
@@ -144,7 +144,7 @@ bans.infoModal = function(id){
     $('#note-error').empty();
     $('#error').empty();
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/getBan/${id}`,
+        url: location.origin+`/dashboard/ban_an/getBan/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
@@ -167,7 +167,7 @@ bans.edit = function(){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/editBan/${id}`,
+        url:location.origin+`/dashboard/ban_an/editBan/${id}`,
         method:'put',
         dataType:'json',
         data: {
@@ -227,7 +227,7 @@ bans.del = function(id){
         }
     });
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/ban_an/delBan/${id}`,
+        url: location.origin+`/dashboard/ban_an/delBan/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(data){

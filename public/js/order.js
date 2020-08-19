@@ -4,7 +4,7 @@ orders.showBill = function(){
     id_bans = $('#id_ban').val();
     let tong = 0;
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/family/hoaDonAPI/${id_bans}`,
+        url:location.origin+`/family/hoaDonAPI/${id_bans}`,
         method : "get",
         dataType : "json",
         success: function(data){
@@ -59,7 +59,7 @@ orders.del = function(id){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/family/delCTHD/${id}`,
+        url:location.origin+`/family/delCTHD/${id}`,
         method : "delete",
         dataType : "json",
         success: function(data){
@@ -81,7 +81,7 @@ orders.addCTHD = function(id_mon){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/family/addCTHD`,
+        url:location.origin+`/family/addCTHD`,
         method : "post",
         dataType : "json",
         data: {
@@ -150,7 +150,7 @@ orders.thanhtoan = function(total,id_hoadons){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/family/pay/${id_hoadons}`,
+        url:location.origin+`/family/pay/${id_hoadons}`,
         method : "delete",
         dataType : "json",
         data: {total:total},
@@ -172,7 +172,7 @@ orders.updateSL = function(id,ele){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/family/updateCTHD/${id}`,
+        url:location.origin+`/family/updateCTHD/${id}`,
         method : "put",
         dataType : "json",
         data : {soluong},

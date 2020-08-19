@@ -2,7 +2,7 @@ var cupon = cupon || {};
 
 cupon.showCTKM = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/ctkm/ctkmsAPI',
+        url : location.origin+'/dashboard/ctkm/ctkmsAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -18,7 +18,7 @@ cupon.showCTKM = function(){
 
 cupon.showMon = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/mons/monsAPI',
+        url : location.origin+'/dashboard/mons/monsAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -34,7 +34,7 @@ cupon.showMon = function(){
 
 cupon.show = function(){
     $.ajax({
-        url : 'http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/cuponAPI',
+        url : location.origin+'/dashboard/cupon/cuponAPI',
         method : "get",
         dataType : "json",
         success : function(data){
@@ -84,7 +84,7 @@ cupon.closeModal = function(){
 
 cupon.infoModal = function(id){
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/cuponAPI/${id}`,
+        url: location.origin+`/dashboard/cupon/cuponAPI/${id}`,
         method: 'get',
         dataType: 'json',
         success: function(data){
@@ -123,7 +123,7 @@ cupon.create =function(){
             }
         });
          $.ajax({
-            url:"http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/create",
+            url:location.origin+"/dashboard/cupon/create",
             method: 'POST',
             data:data,
             success : function(){
@@ -180,7 +180,7 @@ cupon.edit = function(){
         }
     });
     $.ajax({
-        url:`http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/editCupon/${id}`,
+        url:location.origin+`/dashboard/cupon/editCupon/${id}`,
         method:'put',
         dataType:'json',
         data: {
@@ -215,7 +215,7 @@ cupon.del = function(id){
         }
     });
     $.ajax({
-        url: `http://family-nhahanggiadinh.herokuapp.com/dashboard/cupon/delCupon/${id}`,
+        url: location.origin+`/dashboard/cupon/delCupon/${id}`,
         method: 'delete',
         dataType: 'json',
         success: function(data){
